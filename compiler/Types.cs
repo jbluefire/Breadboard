@@ -34,12 +34,10 @@ namespace Breadboard.Compiler
 
     static class Types
     {
-        private static IDictionary<string, TypeProperty> types;
+        private static readonly Dictionary<string, TypeProperty> types = [];
 
         static Types()
         {
-            types = new Dictionary<string, TypeProperty>();
-
             // Primitive types
             types.Add("bool", new TypeProperty
             {
@@ -180,7 +178,7 @@ namespace Breadboard.Compiler
 
         private static List<TypeSpec> ParseDetails(string s, ref int index)
         {
-            List<TypeSpec> details = new List<TypeSpec>();
+            List<TypeSpec> details = [];
 
             var start = index;
             for (; index < s.Length; ++index)
