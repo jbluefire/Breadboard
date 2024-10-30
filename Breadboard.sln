@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34902.65
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "b2c", "b2c\b2c.csproj", "{4FF6DE01-F98A-4050-9A86-B08D2CD2FC27}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Breadboard", "src\Breadboard.csproj", "{B9E8315C-FBF2-4E30-A880-E2FDBFF47315}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "b2c", "compiler\b2c.csproj", "{D90681BC-1F95-4566-9F9F-7FD2E87B8216}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,14 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{4FF6DE01-F98A-4050-9A86-B08D2CD2FC27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4FF6DE01-F98A-4050-9A86-B08D2CD2FC27}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4FF6DE01-F98A-4050-9A86-B08D2CD2FC27}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4FF6DE01-F98A-4050-9A86-B08D2CD2FC27}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B9E8315C-FBF2-4E30-A880-E2FDBFF47315}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B9E8315C-FBF2-4E30-A880-E2FDBFF47315}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B9E8315C-FBF2-4E30-A880-E2FDBFF47315}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B9E8315C-FBF2-4E30-A880-E2FDBFF47315}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D90681BC-1F95-4566-9F9F-7FD2E87B8216}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D90681BC-1F95-4566-9F9F-7FD2E87B8216}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D90681BC-1F95-4566-9F9F-7FD2E87B8216}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D90681BC-1F95-4566-9F9F-7FD2E87B8216}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

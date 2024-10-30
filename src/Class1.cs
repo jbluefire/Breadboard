@@ -1,6 +1,7 @@
-﻿namespace Breadboard;
-
-public class Class1
+﻿namespace Breadboard
 {
+    public class Class1
+    {
 
+    }
 }
