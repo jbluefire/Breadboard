@@ -3,7 +3,7 @@ using System.Text;
 
 namespace Breadboard.Compiler
 {
-    public class TypeSpec
+    class TypeSpec
     {
         public string Type { get; set; }
         public List<TypeSpec> Details { get; set; }
@@ -180,7 +180,6 @@ namespace Breadboard.Compiler
         {
             List<TypeSpec> details = [];
 
-            var start = index;
             for (; index < s.Length; ++index)
             {
                 var c = s[index];
