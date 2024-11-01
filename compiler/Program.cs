@@ -1,5 +1,7 @@
 ﻿using System;
 
+using System.CommandLine;
+
 namespace Breadboard.Compiler
 {
     class Program
