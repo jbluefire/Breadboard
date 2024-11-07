@@ -1,0 +1,11 @@
+{
+    "defs": [
+        {
+            "name": "SampleCell",
+            "type": "cell",
+            "props": [
+                { "name": "Foo", "type": "int32" }
+            ]
+        }
+    ]
+}

@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 
 using System.CommandLine;
+using System.ComponentModel.Design;
 using System.IO;
 using System.Reflection.Metadata.Ecma335;
 
 using Breadboard.Compiler.Formatters;
 using Breadboard.Compiler.Parsers;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Breadboard.Compiler
 {
@@ -25,10 +27,13 @@ namespace Breadboard.Compiler
             { ".json", new JsonParser() }
         };
 
+        private Formatter formatter;
         private readonly Stack<string> subDirs = [];
 
         public void Run(List<string> arguments)
         {
+            formatter = formatters["cs"];
+
             Console.WriteLine(OutDir);
             Console.WriteLine(Recursive);
             foreach (var argument in arguments)
@@ -96,7 +101,56 @@ namespace Breadboard.Compiler
 
         private void ProcessFile(string path)
         {
+            var filename = Path.GetFileName(path);
+            var extension = Path.GetExtension(path);
+            string outDir;
+            if (OutDir is null)
+            {
+                outDir = Path.GetDirectoryName(path);
+            }
+            else
+            {
+                outDir = Path.Combine(OutDir, string.Join(
+                    Path.DirectorySeparatorChar.ToString(), subDirs.ToArray()));
+            }
 
+            if (!parsers.TryGetValue(extension.ToLower(), out IParser parser))
+            {
+                return;
+            }
+
+            Console.Write(path);
+
+            if (/*!Forced &&*/ formatter.IsUpToDate(path, outDir))
+            {
+                Console.WriteLine(" up-to-date");
+                return;
+            }
+            else
+            {
+                Console.WriteLine();
+            }
+
+            if (!parser.Parse(path, out Unit unit))
+            {
+                Program.IncrementErrorCount();
+            }
+            if (unit is null)
+            {
+                return;
+            }
+
+            unit.BaseName = Path.GetFileNameWithoutExtension(path);
+
+            if (!string.IsNullOrEmpty(outDir) && !Directory.Exists(outDir))
+            {
+                Directory.CreateDirectory(outDir);
+            }
+
+            if (!formatter.Format(unit, outDir))
+            {
+                Program.IncrementErrorCount();
+            }
         }
     }
 }

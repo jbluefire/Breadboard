@@ -27,8 +27,7 @@ namespace Breadboard.Compiler
 
             var outDirOption = new Option<string>(
                 aliases: ["-o", "--out-dir"],
-                description: "Output directory",
-                getDefaultValue: () => { return "."; });
+                description: "Output directory");
             var recursiveOption = new Option<bool>(
                 aliases: [ "-r", "--recursive" ],
                 description: "Process subdirectories recursively");
