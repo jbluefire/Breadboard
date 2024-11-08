@@ -1,6 +1,7 @@
 {
+    "namespace": "Sample",
     "refs": [
-        { "target": "Sample" }
+        { "type": "namespace", "target": "Sample.Common" }
     ],
     "consts": [
         {   "name": "MyConst",
@@ -12,14 +13,14 @@
         }
     ],
     "types": [
-        {   "name": "SampleCell",
+        {   "name": "MyCell",
             "desc": "Sample cell",
             "type": "cell",
             "props": [
                 { "name": "Foo", "type": "int32" }
             ]
         },
-        {   "name": "SampleEvent",
+        {   "name": "MyEvent",
             "type": "event",
             "id": 1,
             "props": [
