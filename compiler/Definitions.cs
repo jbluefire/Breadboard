@@ -11,8 +11,15 @@ namespace Breadboard.Compiler
         public List<Definition> Definitions { get; private set; } = [];
     }
 
+    enum ReferenceType
+    {
+        Namespace,
+        File
+    }
+
     class Reference
     {
+        public ReferenceType Type { get; set; } = ReferenceType.Namespace;
         public string Target { get; set; }
     }
 
