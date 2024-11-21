@@ -27,13 +27,16 @@ namespace Breadboard.Compiler
             { ".json", new JsonParser() }
         };
 
-        private Formatter formatter;
+        private readonly Formatter formatter;
         private readonly Stack<string> subDirs = [];
+
+        public Compiler()
+        {
+            formatter = formatters["cs"];
+        }
 
         public void Run(List<string> arguments)
         {
-            formatter = formatters["cs"];
-
             Console.WriteLine(OutDir);
             Console.WriteLine(Recursive);
             foreach (var argument in arguments)
@@ -131,11 +134,7 @@ namespace Breadboard.Compiler
                 Console.WriteLine();
             }
 
-            if (!parser.Parse(path, out Unit unit))
-            {
-                Program.IncrementErrorCount();
-            }
-            if (unit is null)
+            if (!parser.Parse(path, out Unit unit) || unit is null)
             {
                 return;
             }
@@ -147,10 +146,7 @@ namespace Breadboard.Compiler
                 Directory.CreateDirectory(outDir);
             }
 
-            if (!formatter.Format(unit, outDir))
-            {
-                Program.IncrementErrorCount();
-            }
+            formatter.Format(unit, outDir);
         }
     }
 }
