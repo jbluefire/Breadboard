@@ -63,6 +63,7 @@ namespace Breadboard.Compiler.Parsers
                             }
                             constants.Constants.Add(constant);
                         }
+                        unit.Definitions.Add(constants);
                     }
                 }
                 var types = json["types"];
@@ -98,6 +99,7 @@ namespace Breadboard.Compiler.Parsers
                             }
                             cell.Properties.Add(property);
                         }
+                        unit.Definitions.Add(cell);
                     }
                 }
                 return true;

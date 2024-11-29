@@ -1,6 +1,6 @@
 ﻿namespace Breadboard
 {
-    public class Class1
+    public class Cell
     {
 
     }

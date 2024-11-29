@@ -1,27 +1,24 @@
 {
     "namespace": "Sample",
     "refs": [
-        { "type": "namespace", "target": "Sample.Common" }
+        { "type": "namespace", "target": "Sample/Common" }
     ],
     "consts": [
-        {   "name": "MyConst",
+        {   "name": "MyConst", "type": "int32",
             "desc": "My integer constant",
-            "type": "int32",
             "values": [
                 { "name": "MyConst1", "value": 1 }
             ]
         }
     ],
     "types": [
-        {   "name": "MyCell",
+        {   "name": "MyCell", "type": "cell",
             "desc": "Sample cell",
-            "type": "cell",
             "props": [
                 { "name": "Foo", "type": "int32" }
             ]
         },
-        {   "name": "MyEvent",
-            "type": "event",
+        {   "name": "MyEvent", "type": "event",
             "id": 1,
             "props": [
                 { "name": "Bar", "type": "string" }
